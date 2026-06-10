@@ -1,0 +1,13 @@
+{
+  "$schema": "https://githubusercontent.com",
+  "runtime": {
+    "version": "LuaJIT"
+  },
+  "workspace": {
+    "library": ["/usr/share/hyprland/stubs", "$XDG_CONFIG_HOME/hypr/stubs"],
+    "checkThirdParty": false
+  },
+  "diagnostics": {
+    "globals": ["hl"]
+  }
+}

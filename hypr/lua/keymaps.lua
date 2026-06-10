@@ -33,14 +33,13 @@ local meta_keymaps = {
 	["CTRL + K"] = window.resize({ x = 0, y = -resize, relative = true }),
 	["CTRL + J"] = window.resize({ x = 0, y = resize, relative = true }),
 	["CTRL + L"] = window.resize({ x = -resize, y = 0, relative = true }),
-	T = cmd("hyprctl dispatch togglesplit"),
 }
 
 for l, d in pairs({ H = "left", J = "down", K = "up", L = "right" }) do
 	local opts = { direction = d }
 	meta_keymaps[l] = focus(opts)
-	meta_keymaps["SHIFT+" .. l] = window.move(opts)
-	meta_keymaps["ALT+" .. l] = window.swap(opts)
+	meta_keymaps["SHIFT + " .. l] = window.move(opts)
+	meta_keymaps["ALT + " .. l] = window.swap(opts)
 end
 
 for i = 1, 10 do

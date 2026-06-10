@@ -1,5 +1,5 @@
 return {
-	menu = "fuzzel --show drun",
+	menu = "fuzzel",
 	fileManager = "dolphin",
 	terminal = "kitty",
 }

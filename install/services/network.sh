@@ -2,6 +2,6 @@
 set -euo pipefail
 
 pacman -S --needed --noconfirm \
-  bluez bluez-utils \
-  networkmanager network-manager-applet \
+  bluez{,-utils} \
+  network{manager,-manager-applet} \
   wpa_supplicant

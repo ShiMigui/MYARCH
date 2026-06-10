@@ -2,3 +2,4 @@
 set -euo pipefail
 
 pacman -S --needed --noconfirm sddm
+systemctl enable sddm

@@ -2,7 +2,6 @@
 set -euo pipefail
 
 pacman -S --needed --noconfirm \
-  brightnessctl \
-  flatpak \
-  htop \
-  zsh
+  grim slurp swappy \
+  wl-clipboard \
+  xdg-desktop-portal-gtk

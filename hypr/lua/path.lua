@@ -1,12 +1,17 @@
-local PATH = {
-	"/usr/share",
+local HOME = os.getenv("HOME")
+
+local data_dirs = {
 	"/usr/local/share",
+	"/usr/share",
+	HOME .. "/.local/share",
 	"/var/lib/flatpak/exports/share",
-	"/home/shimigui/.local/share/flatpak/exports/share",
+	HOME .. "/.local/share/nvim/mason/bin",
+	HOME .. "/.local/share/flatpak/exports/share",
 }
-local XDG_DATA_DIRS = os.getenv("XDG_DATA_DIRS")
-if XDG_DATA_DIRS then
-	PATH[#PATH + 1] = XDG_DATA_DIRS
+
+local existing = os.getenv("XDG_DATA_DIRS")
+if existing and existing ~= "" then
+	data_dirs[#data_dirs + 1] = existing
 end
 
-return table.concat(PATH, ":")
+return table.concat(data_dirs, ":")

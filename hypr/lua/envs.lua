@@ -4,4 +4,5 @@ return {
 	QT_QPA_PLATFORM = "wayland",
 	QT_QPA_PLATFORMTHEME = "qt6ct",
 	XDG_DATA_DIRS = require("lua.path"),
+	FONT = "Electroharmonix",
 }

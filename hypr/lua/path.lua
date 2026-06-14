@@ -1,11 +1,10 @@
 local HOME = os.getenv("HOME")
 
 local data_dirs = {
-	"/usr/local/share",
 	"/usr/share",
+	"/usr/local/share",
 	HOME .. "/.local/share",
 	"/var/lib/flatpak/exports/share",
-	HOME .. "/.local/share/nvim/mason/bin",
 	HOME .. "/.local/share/flatpak/exports/share",
 }
 

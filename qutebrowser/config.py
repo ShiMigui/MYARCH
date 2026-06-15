@@ -1,12 +1,14 @@
 import qutebrowser
 
+config.load_autoconfig()
+
 c.url.default_page = "https://duckduckgo.com"
 c.url.start_pages = ["https://duckduckgo.com"]
 c.url.searchengines = {"DEFAULT": "https://duckduckgo.com/?q={}"}
 c.url.open_base_url = True
 
 c.tabs.position = "left"
-c.tabs.width = "40px"
+c.tabs.width = 40
 c.tabs.show = "multiple"
 c.tabs.favicons.scale = 1.0
 c.tabs.indicator.width = 2
@@ -14,8 +16,7 @@ c.tabs.title.format = "{index}"
 c.tabs.title.format_pinned = "{index}"
 
 c.colors.webpage.darkmode.enabled = True
-c.colors.webpage.darkmode.policy.algorithm = "brightness-rgb"
-c.colors.webpage.darkmode.policy.contrast_threshold = 0.4
+c.colors.webpage.darkmode.algorithm = "brightness-rgb"
 
 c.colors.tabs.even.bg = "#1a1a2e"
 c.colors.tabs.odd.bg = "#1a1a2e"
@@ -48,8 +49,7 @@ c.colors.statusbar.url.error.fg = "#f38ba8"
 c.colors.statusbar.url.hover.fg = "#9333ea"
 c.colors.statusbar.url.success.https.fg = "#a6e3a1"
 
-c.colors.tabbar.bg = "#111111"
-c.colors.tabbar.separator = "#9333ea"
+c.colors.tabs.bar.bg = "#111111"
 
 c.fonts.default_size = "11pt"
 c.fonts.default_family = "JetBrainsMono Nerd Font"

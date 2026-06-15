@@ -15,7 +15,6 @@ font JetBrainsMono Nerd Font 11
 
 output * bg $wallpaper fill
 
-for_window [all] border pixel 2
 
 gaps inner 2
 gaps outer 4
@@ -24,10 +23,10 @@ default_border pixel 2
 default_floating_border pixel 2
 
 client.focused          #9333ea #9333ea #e2e8f0 #000000
-client.focused_inactive rgba(9333ea9f) rgba(9333ea9f) #e2e8f0 #000000
-client.unfocused        rgba(9333ea9f) rgba(9333ea9f) #e2e8f0 #000000
+client.focused_inactive #9333ea9f #9333ea9f #e2e8f0 #000000
+client.unfocused        #9333ea9f #9333ea9f #e2e8f0 #000000
 client.urgent           #06b6d4 #06b6d4 #e2e8f0 #000000
-client.placeholder      rgba(00000000) rgba(00000000) #e2e8f0 rgba(00000000)
+client.placeholder      #00000000 #00000000 #e2e8f0 #00000000
 
 smart_borders off
 smart_gaps off
@@ -35,14 +34,13 @@ smart_gaps off
 floating_maximum_size -1 x -1
 floating_minimum_size 100 x 50
 
-input * {
-    kb_layout br
-    kb_variant abnt2
+input "*" {
+    xkb_layout "br"
+    xkb_variant "abnt2"
     natural_scroll disabled
-    xkb_numlock enabled
 }
 
-input type:touchpad {
+input "type:touchpad" {
     natural_scroll disabled
     tap enabled
     dwt enabled
@@ -70,14 +68,13 @@ bar {
         background #000000
         separator #9333ea
         focused_workspace #9333ea #9333ea #e2e8f0
-        inactive_workspace rgba(9333ea9f) rgba(9333ea9f) #e2e8f0
+        inactive_workspace #9333ea9f #9333ea9f #e2e8f0
         urgent_workspace #06b6d4 #06b6d4 #000000
     }
 }
 
 workspace_layout default
 workspace 1 output *
-
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"

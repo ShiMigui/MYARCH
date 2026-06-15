@@ -2,6 +2,6 @@
 set -euo pipefail
 
 pacman -S --needed --noconfirm \
-  alacritty ark dolphin kio-admin qutebrowser \
+  alacritty ark dolphin chromium kio-admin \
   brightnessctl flatpak \
   spotify-launcher steam

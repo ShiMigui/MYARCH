@@ -41,5 +41,4 @@ style = "Beam"
 [selection]
 save_to_clipboard = true
 
-[hints]
-enabled = true
+

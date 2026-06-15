@@ -11,4 +11,4 @@ c.tabs.width = 40
 c.tabs.show = "always"
 
 c.colors.webpage.darkmode.enabled = True
-c.colors.webpage.darkmode.algorithm = "lightness-hsp"
+c.colors.webpage.darkmode.algorithm = "lightness-hsl"

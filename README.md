@@ -1,15 +1,17 @@
 # MYFCKARCH
 
-Personal dotfiles for [Hyprland](https://hyprland.org) on Arch Linux.
+Personal dotfiles for [Sway](https://swaywm.org) on Arch Linux.
 
 ## Structure
 
 | Path | Description |
 |---|---|
-| `hypr/` | Hyprland compositor config (Lua) + idle/lock/paper, screenshot script |
-| `waybar/` | Status bar config and custom scripts |
-| `swaync/` | Notification center config and style |
-| `fuzzel/` | Application launcher config |
+| `sway` | Sway compositor config |
+| `waybar/` | Status bar config and styles |
+| `swaync/` | Notification center config and styles |
+| `alacritty.toml` | Alacritty terminal config |
+| `fuzzel.ini` | Application launcher config |
+| `.zprofile` | Zsh profile (XDG, Wayland, PATH) |
 | `install/` | Bootstrap scripts to reproduce the setup |
 
 ### Theme
@@ -22,14 +24,15 @@ Personal dotfiles for [Hyprland](https://hyprland.org) on Arch Linux.
 ### Install
 
 ```sh
-./install/install-all.sh
-```
-
-Or run individual categories:
-
-```sh
-./install/graphics/hyprland.sh
+./install/graphics/sway.sh
 ./install/services/audio.sh
+./install/services/network.sh
+./install/services/printing.sh
+./install/hardware/amd.sh
+./install/development.sh
+./install/apps.sh
+./install/fonts.sh
+./install/greetd/install.sh
 ```
 
 ## License

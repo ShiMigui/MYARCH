@@ -1,0 +1,188 @@
+set $super Mod4
+set $layout Mod1
+set $move $super+Shift
+set $resize $super+Ctrl
+
+set $terminal alacritty
+set $filemanager dolphin
+set $browser chromium
+set $menu fuzzel
+
+set $wallpaper ~/Pictures/Wallpapers/wallpaper
+set $lockbg ~/Pictures/Wallpapers/lock
+set $scr ~/.config/sway/screenshot.sh
+
+set $bgcolor #000000
+set $fgcolor #e2e8f0
+set $primary #9333ea
+set $primary_dim #1D0532
+set $secondary #06b6d4
+set $transparent #00000000
+
+set $ws1 "1:󰣇"
+set $ws2 "2:󰆍"
+set $ws3 "3:󰈙"
+set $ws4 "4:󰖟"
+set $ws5 "5:󰭹"
+set $ws6 "6:󰝚"
+set $ws7 "7:󰢹"
+set $ws8 "8:󰺵"
+set $ws9 "9:󱓷"
+set $ws10 "10:󰒓"
+
+font JetBrainsMono Nerd Font 11
+
+output * bg $wallpaper fill
+
+gaps inner 0
+gaps outer 0
+
+default_border pixel 2
+default_floating_border pixel 2
+
+client.focused          $primary     $primary     $fgcolor $bgcolor
+client.focused_inactive $primary_dim $primary_dim $fgcolor $bgcolor
+client.unfocused        $primary_dim $primary_dim $fgcolor $bgcolor
+client.urgent           $secondary   $secondary   $fgcolor $bgcolor
+client.placeholder      $transparent $transparent $fgcolor $transparent
+
+smart_borders off
+smart_gaps off
+
+hide_edge_borders none
+workspace_layout default
+floating_modifier $super normal
+workspace_auto_back_and_forth no
+# floating_maximum_size -1 x -1
+# floating_minimum_size 100 x 50
+
+input "*" {
+    xkb_layout br
+    xkb_variant abnt2
+}
+
+input "type:touchpad" {
+    tap enabled
+    dwt enabled
+    natural_scroll disabled
+}
+
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+
+for_window [app_id="nm-applet"] floating enable
+for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="blueman-manager"] floating enable
+
+bindsym $super+q kill
+bindsym $super+w exec $browser
+bindsym $super+Space exec $menu
+bindsym $super+e exec $filemanager
+bindsym $super+Return exec $terminal
+
+bindsym $super+Button1 move 
+bindsym $super+Button3 resize
+
+bindsym $layout+b splith
+bindsym $layout+n splitv
+bindsym $layout+t layout tabbed
+bindsym $layout+s layout stacking
+bindsym $layout+v floating toggle 
+bindsym $layout+f fullscreen toggle
+bindsym $layout+space layout toggle split
+
+bindsym $super+minus move scratchpad
+bindsym $super+equal scratchpad show
+
+bindsym $super+Tab workspace next
+bindsym $super+c move position center
+bindsym $super+Shift+Tab workspace prev
+bindsym $move+o move workspace to output right
+bindsym $move+i move workspace to output left
+
+bindsym $super+h focus left
+bindsym $super+j focus down
+bindsym $super+k focus up
+bindsym $super+l focus right
+bindsym $super+1 workspace $ws1
+bindsym $super+2 workspace $ws2
+bindsym $super+3 workspace $ws3
+bindsym $super+4 workspace $ws4
+bindsym $super+5 workspace $ws5
+bindsym $super+6 workspace $ws6
+bindsym $super+7 workspace $ws7
+bindsym $super+8 workspace $ws8
+bindsym $super+9 workspace $ws9
+bindsym $super+0 workspace $ws10
+
+bindsym $move+h move left
+bindsym $move+j move down
+bindsym $move+k move up
+bindsym $move+l move right
+bindsym $move+1 move container to workspace $ws1; workspace $ws1
+bindsym $move+2 move container to workspace $ws2; workspace $ws2
+bindsym $move+3 move container to workspace $ws3; workspace $ws3
+bindsym $move+4 move container to workspace $ws4; workspace $ws4
+bindsym $move+5 move container to workspace $ws5; workspace $ws5
+bindsym $move+6 move container to workspace $ws6; workspace $ws6
+bindsym $move+7 move container to workspace $ws7; workspace $ws7
+bindsym $move+8 move container to workspace $ws8; workspace $ws8
+bindsym $move+9 move container to workspace $ws9; workspace $ws9
+bindsym $move+0 move container to workspace $ws10; workspace $ws10
+
+bindsym $resize+h resize shrink width 40 px
+bindsym $resize+j resize grow height 40 px
+bindsym $resize+k resize shrink height 40 px
+bindsym $resize+l resize grow width 40 px
+
+bindsym $super+s mode system
+mode "system" {
+    bindsym l exec swaylock -f -i $lockbg
+    bindsym s exec systemctl suspend
+    bindsym h exec systemctl hibernate
+    bindsym r exec systemctl reboot
+    bindsym p exec systemctl poweroff
+    bindsym n exec swaync-client -t
+    bindsym Return mode default
+    bindsym Escape mode default
+}
+
+bindsym $super+Shift+p exec nwg-bar
+bindsym $super+Shift+c reload
+bindsym $super+Shift+r restart
+
+bindsym Print exec $scr full
+bindsym Ctrl+Print exec $scr region
+
+bindsym XF86AudioRaiseVolume exec wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioStop exec playerctl stop
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86PowerOff exec swaylock -f -i $lockbg
+bindsym $super+Escape exec swaylock -f -i $lockbg
+
+bar {
+    swaybar_command waybar
+}
+
+exec_always swaync
+exec_always nm-applet
+exec_always blueman-applet
+exec_always /usr/lib/polkit-kde-authentication-agent-1
+exec_always swayidle -w \
+timeout 900 "swaylock -f -i $lockbg" \
+timeout 960 "swaymsg 'output * dpms off'" \
+resume "swaymsg 'output * dpms on'" \
+timeout 1800 "systemctl suspend" \
+before-sleep "swaylock -f -i $lockbg"
+
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP

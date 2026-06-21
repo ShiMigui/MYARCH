@@ -2,65 +2,58 @@
   "layer": "top",
   "position": "top",
   "height": 30,
-  "modules-left": ["hyprland/workspaces"],
-  "modules-center": ["hyprland/window"],
-  "modules-right": [
-    "pulseaudio",
-    "custom/power-profile",
-    "battery",
-    "network",
-    "custom/clock",
-    "tray",
-  ],
-  "hyprland/workspaces": {
+  "modules-left": ["sway/mode", "sway/workspaces"],
+  "modules-center": ["sway/window"],
+  "modules-right": [ "power-profiles-daemon", "battery", "pulseaudio", "clock", "tray" ],
+  "sway/mode": {
+    "format": "{}",
+    "format-icons": {
+      "default": "  ",
+      "resize": " resize",
+      "layout": " layout",
+      "system": " system"
+    }
+  },
+  "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
     "format": "{name}",
-    "persistent_workspaces": {
-      "1": [],
-      "2": [],
-      "3": [],
-      "4": [],
-      "5": [],
-    },
+    "persistent_workspaces": { }
   },
-  "hyprland/window": {
+  "sway/window": {
     "format": "{}",
-    "max-length": 60,
-    "separate-outputs": true,
+    "max-length": 80,
+    "separate-outputs": true
   },
-  "custom/clock": {
-    "exec": "$HOME/.config/waybar/scripts/clock.sh",
-    "on-click": "$HOME/.config/waybar/scripts/clock.sh --toggle",
-    "signal": 2,
-    "interval": 30,
-  },
+  "clock": { "format": "{:%H:%M}", "format-alt": "{:%a %d/%m}", "interval": 60 },
   "battery": {
-    "format": "{icon} {capacity}%",
-    "format-icons": {
-      "charging": [""],
-      "full-charging": [""],
-      "full": [""],
-      "good": [""],
-      "low": [""],
-      "critical": [""],
+    "states": {
+        "warning": 30,
+        "critical": 15
     },
-    "format-charging": " {capacity}%",
-    "format-full": " ",
-    "tooltip-format": "{timeTo} {power}W",
+    "format": "{icon} {capacity}%",
+    "format-charging": "{capacity}% ",
+    "format-plugged": "{capacity}% ",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["", "", "", "", ""],
+    "tooltip-format": "{timeTo} {power}W"
   },
-  "custom/power-profile": {
-    "exec": "$HOME/.config/waybar/scripts/power-profile.sh",
-    "on-click": "$HOME/.config/waybar/scripts/power-profile.sh --toggle",
-    "signal": 3,
-    "interval": 10,
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Perfil: {profile}",
+    "tooltip": true,
+    "format-icons": {
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
   },
   "pulseaudio": {
-    "format": "{icon}   {volume}%",
-    "format-muted": "",
+    "format": "{icon}  {volume}%",
+    "format-muted": "",
     "format-icons": { "default": [""] },
     "on-click": "pavucontrol",
-    "scroll-step": 5,
+    "scroll-step": 10
   },
   "network": {
     "format-wifi": "",
@@ -68,9 +61,7 @@
     "format-disconnected": "",
     "tooltip-format-wifi": "{essid} ({signalStrength}%)",
     "tooltip-format-ethernet": "{ifname}",
-    "interval": 30,
+    "interval": 60
   },
-  "tray": {
-    "spacing": 8,
-  },
+  "tray": { "spacing": 8 }
 }

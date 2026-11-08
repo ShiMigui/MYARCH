@@ -1,25 +1,25 @@
 # MYARCH — Arch Linux Dotfiles
 
-Configurações pessoais do **Arch Linux** com ambiente **Wayland/Sway**, otimizadas para desenvolvimento.
+Personal **Arch Linux** configuration with a **Wayland/Sway** environment, optimized for development.
 
-## Componentes
+## Components
 
-| Arquivo/Pasta | Ferramenta | Descrição |
+| File/Folder | Tool | Description |
 |---|---|---|
-| `sway/` | Sway | Compositor Wayland (i3-compatible) |
-| `waybar/` | Waybar | Barra de status |
-| `swaync/` | SwayNC | Centro de notificações |
+| `sway/` | Sway | Wayland compositor (i3-compatible) |
+| `waybar/` | Waybar | Status bar |
+| `swaync/` | SwayNC | Notification center |
 | `alacritty.toml` | Alacritty | Terminal |
-| `fuzzel.ini` | Fuzzel | Lançador de aplicativos |
-| `.zprofile` | zsh | Scripts de ambiente |
+| `fuzzel.ini` | Fuzzel | Application launcher |
+| `.zprofile` | zsh | Environment scripts |
 
-## Instalação
+## Installation
 
-Os scripts de instalação estão em [`install/`](./install/), organizados por área:
+The installation scripts are in [`install/`](./install/), organized by area:
 
-- `core.sh` — pacotes essenciais
-- `development.sh` — ferramentas de desenvolvimento
-- `apps.sh` — aplicativos do dia a dia
+- `core.sh` — essential packages
+- `development.sh` — development tools
+- `apps.sh` — everyday applications
 - `fonts.sh`, `graphics/`, `hardware/`, `services/`, `AUR/`, `greetd/`
 
 ```bash
@@ -27,13 +27,13 @@ Os scripts de instalação estão em [`install/`](./install/), organizados por �
 ./install/development.sh
 ```
 
-## Uso
+## Usage
 
-Copie os arquivos para seus respectivos diretórios de configuração:
+Copy the files to their respective configuration directories:
 
 ```bash
-# exemplo para sway
+# example for sway
 cp -r sway ~/.config/
 ```
 
-> **Atenção:** estes dotfiles refletem minhas preferências pessoais — revise antes de usar.
+> **Warning:** these dotfiles reflect my personal preferences — review them before use.
